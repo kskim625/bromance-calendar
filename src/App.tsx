@@ -24,7 +24,7 @@ export interface dataType {
 }
 
 const App = () => {
-  const [date, setDate] = useState<Date>(new Date());
+  const [date] = useState<Date>(new Date());
   const [lightMode, setLightMode] = useState<boolean>(true);
   const [matches, setMatches] = useState<dataType[]>([]);
   const DARK_MODE_CLASS_NAME = 'darkMode';

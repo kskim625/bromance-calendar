@@ -4,7 +4,7 @@ import styles from '../../styles/NavigationBar.module.css';
 
 const NavigationBar = ({ lightMode }: { lightMode: boolean }) => {
   const navigate = useNavigate();
-  const [today, setToday] = useState<Date>(new Date());
+  const [today] = useState<Date>(new Date());
 
   const goToPrevious = () => {
     navigate('/previous');
