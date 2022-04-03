@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bromance-calendar/static/css/main.4de89ada.css",
+    "main.js": "/bromance-calendar/static/js/main.ec8b8f94.js",
+    "static/js/787.1d4f7eff.chunk.js": "/bromance-calendar/static/js/787.1d4f7eff.chunk.js",
+    "index.html": "/bromance-calendar/index.html",
+    "main.4de89ada.css.map": "/bromance-calendar/static/css/main.4de89ada.css.map",
+    "main.ec8b8f94.js.map": "/bromance-calendar/static/js/main.ec8b8f94.js.map",
+    "787.1d4f7eff.chunk.js.map": "/bromance-calendar/static/js/787.1d4f7eff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4de89ada.css",
+    "static/js/main.ec8b8f94.js"
+  ]
+}
