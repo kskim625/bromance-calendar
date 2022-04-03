@@ -27,5 +27,6 @@
   },
   "engines": {
     "node": "14.x"
-  }
+  },
+  "homepage": "https://kskim625.github.io/bromance-calendar/"
 }

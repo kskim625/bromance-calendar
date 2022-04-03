@@ -164,7 +164,7 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     if (selectedEvent) {
       displayMatchDayModal(selectedEvent);
     }
-  }, [thisMatches, lightMode, selectedEvent, displayMatchDayModal, setCalendar]);
+  }, [thisMatches, lightMode]);
 
   return (
     <div className={styles.calendarWrapper}>

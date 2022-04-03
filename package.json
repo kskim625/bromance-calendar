@@ -26,6 +26,7 @@
   "scripts": {
     "start": "npm run dev:server",
     "build": "react-scripts build",
+    "heroku-postbuild": "cd server && npm install",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:server": "nodemon server/index.ts",
