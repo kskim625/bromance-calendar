@@ -1,0 +1,43 @@
+.navigationBar,
+.darkNavigationBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin: 0 auto;
+  max-width: 380px;
+  height: 32px;
+}
+
+.button,
+.darkButton {
+  height: 32px;
+}
+
+.button a,
+.darkButton a {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 32px;
+  transition: 0.5s;
+}
+
+.button a {
+  color: rgba(0, 0, 0, 1);
+}
+
+.darkButton a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.button a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.darkButton a:hover {
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+}

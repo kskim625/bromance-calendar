@@ -1,0 +1,178 @@
+.calendarWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #eaeaea;
+  padding: 30px 0;
+  margin: 0 auto;
+}
+
+.calendarRow:nth-child(2) {
+  color: #fff;
+  background-color: rgb(240, 58, 23, 0.8);
+}
+
+.calendarRow {
+  display: flex;
+  border: 1px #000 solid;
+  user-select: none;
+}
+
+.darkCalendarRow:nth-child(2) {
+  color: #fff;
+  background-color: rgb(240, 58, 23, 0.8);
+}
+
+.darkCalendarRow {
+  display: flex;
+  border: 1px #fff solid;
+  background-color: rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.calendarContent,
+.darkCalendarContent {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+}
+
+.calendarToday {
+  border-radius: 10px;
+  background-color: rgb(235, 217, 88, 0.8);
+}
+
+.calendarHoliday {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.calendarHoliday:after {
+  content: '';
+  display: flex;
+  position: absolute;
+  transform: translate(250%, -12px);
+  border-radius: 50%;
+  width: 7.5px;
+  height: 7.5px;
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.dayType {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.dayTypeTop {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.dayTypeBottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dayTypeToday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: rgb(235, 217, 88, 0.8);
+}
+
+.dayTypeMatchday {
+  border-radius: 50%;
+  margin: 0 10px 0 20px;
+  width: 7.5px;
+  height: 7.5px;
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 65px);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.modalContainer,
+.darkModalContainer {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, 0);
+  width: 320px;
+  height: auto;
+  max-height: 500px;
+  min-height: 320px;
+  border-radius: 5px;
+  padding: 15px;
+  overflow-y: scroll;
+}
+
+.modalContainer::-webkit-scrollbar,
+.darkModalContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modalContainer::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #294881;
+}
+
+.darkModalContainer::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #96abd6;
+}
+
+.modalContainer {
+  background-color: #fff;
+  border: 1px #000 solid;
+}
+
+.darkModalContainer {
+  background-color: rgb(50, 50, 50);
+  border: 1px #fff solid;
+}
+
+.holidayDescription {
+  margin: 10px 0;
+}
+
+.removeModal,
+.darkRemoveModal {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.removeModal {
+  border: 1px #000 solid;
+}
+
+.darkRemoveModal {
+  border: 1px #fff solid;
+}
+
+.removeModal:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.darkRemoveModal:hover {
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(125, 125, 125);
+}

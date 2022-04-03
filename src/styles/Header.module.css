@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem 0;
+  font-size: 25px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.mode {
+  position: absolute;
+  transform: translateX(160px);
+  -webkit-transform: translateX(160px);
+  -moz-transform: translateX(160px);
+  -ms-transform: translateX(160px);
+  -o-transform: translateX(160px);
+  cursor: pointer;
+}
