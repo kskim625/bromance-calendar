@@ -1,28 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { dataType } from '../../App';
 import styles from '../../styles/Calendar.module.css';
-
-interface datetimeType {
-  year: number;
-  month: number;
-  day: number;
-}
-
-interface holidayType {
-  country: { id: string; name: string };
-  date: { datetime: datetimeType; iso: string };
-  description: string;
-  locations: string;
-  name: string;
-  states: string;
-  type: string[];
-}
 
 type monthInfoType = 'previous' | 'current' | 'next';
 
 interface calendarType {
   lightMode: boolean;
   date: Date;
-  holidays: holidayType[] | [];
+  matches: dataType[];
   monthInfo: monthInfoType;
 }
 
@@ -37,61 +22,52 @@ const CalendarHeader = ({ monthInfo }: { monthInfo: monthInfoType }) => {
         <div className={styles.dayTypeToday}>31</div>
         {'오늘'}
         <div className={styles.dayTypeMatchday}></div>
-        {'매치 예정일'}
+        {'풋살/축구 일정'}
       </div>
     </div>
   );
 };
 
-const Calendar = ({ lightMode, date, holidays, monthInfo }: calendarType) => {
+const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
   const [thisCalendar, setThisCalendar] = useState<JSX.Element>(<></>);
-  const [thisHolidays, setThisHolidays] = useState<holidayType[]>([]);
-  const [thisHolidayModal, setThisHolidayModal] = useState<JSX.Element>(<></>);
+  const [thisMatches, setThisMatches] = useState<dataType[]>([]);
+  const [thisMatchDayModal, setThisMatchDayModal] = useState<JSX.Element>(<></>);
   const [selectedEvent, setSelectedEvent] = useState<React.MouseEvent | null>(null);
   const DAYS_IN_A_WEEK: number = 7;
 
-  const decideHoliday = (calEl: string) => {
+  const decideMatchDay = (calEl: string) => {
     return (
-      thisHolidays.filter((holiday) => {
-        return holiday.date.datetime.day === Number(calEl);
+      thisMatches.filter((match) => {
+        return match.date === calEl;
       }).length > 0
     );
   };
 
   const removeModal = () => {
-    setThisHolidayModal(<></>);
+    setThisMatchDayModal(<></>);
     setSelectedEvent(null);
   };
 
-  const displayHolidayModal = (e: React.MouseEvent) => {
+  const displayMatchDayModal = (e: React.MouseEvent) => {
     setSelectedEvent(e);
-    const date = Number((e.target as HTMLDivElement).textContent);
-    const holidays: (holidayType | undefined)[] = thisHolidays.filter((thisHoliday) => {
-      return thisHoliday.date.datetime.day === date;
-    });
+    const date = (e.target as HTMLDivElement).textContent;
+    const matches: dataType = thisMatches.filter((match) => {
+      return match.date === date;
+    })[0];
 
     const containerClass = lightMode ? styles.modalContainer : styles.darkModalContainer;
     const removeButtonClass = lightMode ? styles.removeModal : styles.darkRemoveModal;
 
-    setThisHolidayModal(
+    setThisMatchDayModal(
       <div className={styles.modalWrapper}>
         <div className={containerClass}>
-          {holidays.map((thisHoliday, idx) => {
-            if (thisHoliday)
-              return (
-                <>
-                  <div className={styles.holidayDescription}>{`holiday #${idx + 1}`}</div>
-                  <div className={styles.holidayDescription}>{`Country: ${thisHoliday.country.name}`}</div>
-                  <div className={styles.holidayDescription}>{`Date: ${thisHoliday.date.iso}`}</div>
-                  <div className={styles.holidayDescription}>{`Holiday name: ${thisHoliday.name}`}</div>
-                  <div className={styles.holidayDescription}>{`Holiday type: ${thisHoliday.type[0]}`}</div>
-                  <div className={styles.holidayDescription}>{`description: ${thisHoliday.description}`}</div>
-                  <br></br>
-                </>
-              );
-          })}
+          <div className={styles.modalContent}>
+            <div className={styles.matchHeader}>{`${matches.iso} 일정`}</div>
+            <div className={styles.matchDescription}>{`시간: ${matches.time}`}</div>
+            <div className={styles.matchDescription}>{`장소: ${matches.location}`}</div>
+          </div>
           <div className={removeButtonClass} onClick={removeModal}>
-            Remove Explanation
+            닫기
           </div>
         </div>
       </div>
@@ -99,17 +75,19 @@ const Calendar = ({ lightMode, date, holidays, monthInfo }: calendarType) => {
   };
 
   const drawCalendarEl = (calEl: string, j: number) => {
+    const monthOffset = monthInfo === 'previous' ? -1 : monthInfo === 'current' ? 0 : 1;
     const today: Date = new Date();
-    const isToday: boolean = today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDate() === Number(calEl);
-    const isHoliday: boolean = decideHoliday(calEl);
+    const isToday: boolean =
+      today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() + monthOffset && today.getDate() === Number(calEl);
+    const isMatchDay: boolean = decideMatchDay(calEl);
     const contentStyle = lightMode ? styles.calendarContent : styles.darkCalendarContent;
 
     return isToday ? (
       <div className={`${contentStyle} ${styles.calendarToday}`} key={`calendarEl-${j}`}>
         {calEl}
       </div>
-    ) : isHoliday ? (
-      <div className={`${contentStyle} ${styles.calendarHoliday}`} onClick={displayHolidayModal} key={`calendarEl-${j}`}>
+    ) : isMatchDay ? (
+      <div className={`${contentStyle} ${styles.calendarMatchDay}`} onClick={displayMatchDayModal} key={`calendarEl-${j}`}>
         {calEl}
       </div>
     ) : (
@@ -173,31 +151,26 @@ const Calendar = ({ lightMode, date, holidays, monthInfo }: calendarType) => {
 
   const setCalendar = () => {
     const year = date.getFullYear();
-    const month = date.getMonth();
+    const month = monthInfo === 'previous' ? date.getMonth() - 1 : monthInfo === 'current' ? date.getMonth() : date.getMonth() + 1;
     drawCalendar(makeCalendar(year, month));
   };
 
   useEffect(() => {
-    setThisHolidays(
-      holidays.filter((holiday) => {
-        return holiday.date.datetime.month === date.getMonth() + 1;
-      })
-    );
-  }, []);
+    setThisMatches(matches);
+  }, [matches]);
 
   useEffect(() => {
     setCalendar();
     if (selectedEvent) {
-      displayHolidayModal(selectedEvent);
+      displayMatchDayModal(selectedEvent);
     }
-  }, [thisHolidays, lightMode]);
+  }, [thisMatches, lightMode]);
 
   return (
     <div className={styles.calendarWrapper}>
-      {holidays[0] ? `${date.getFullYear()}. ${date.getMonth() + 1}. ${holidays[0].country.name} holidays` : ''}
       <CalendarHeader monthInfo={monthInfo} />
       {thisCalendar}
-      {thisHolidayModal}
+      {thisMatchDayModal}
     </div>
   );
 };

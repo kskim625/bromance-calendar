@@ -44,12 +44,12 @@
   background-color: rgb(235, 217, 88, 0.8);
 }
 
-.calendarHoliday {
+.calendarMatchDay {
   border-radius: 10px;
   cursor: pointer;
 }
 
-.calendarHoliday:after {
+.calendarMatchDay:after {
   content: '';
   display: flex;
   position: absolute;
@@ -99,10 +99,10 @@
 
 .modalWrapper {
   position: absolute;
-  top: 65px;
+  top: 140px;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 140px);
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -112,10 +112,10 @@
   left: 50%;
   top: 100px;
   transform: translate(-50%, 0);
-  width: 320px;
+  width: 325px;
   height: auto;
   max-height: 500px;
-  min-height: 320px;
+  min-height: 295px;
   border-radius: 5px;
   padding: 15px;
   overflow-y: scroll;
@@ -136,6 +136,12 @@
   background-color: #96abd6;
 }
 
+.modalContainer,
+.darkModalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .modalContainer {
   background-color: #fff;
   border: 1px #000 solid;
@@ -146,8 +152,21 @@
   border: 1px #fff solid;
 }
 
-.holidayDescription {
+.modalContent {
+  flex-grow: 1;
+}
+
+.matchHeader {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.matchDescription {
   margin: 10px 0;
+  font-size: 18px;
 }
 
 .removeModal,

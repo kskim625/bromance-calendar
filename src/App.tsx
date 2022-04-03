@@ -11,12 +11,22 @@ import './styles/index.css';
 export interface pagesPropsType {
   lightMode: boolean;
   date: Date;
+  matches: dataType[];
+}
+
+export interface dataType {
+  year: string;
+  month: string;
+  date: string;
+  iso: string;
+  location: string;
+  time: string;
 }
 
 const App = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [lightMode, setLightMode] = useState<boolean>(true);
-  const [matches, setMathces] = useState();
+  const [matches, setMatches] = useState<dataType[]>([]);
   const DARK_MODE_CLASS_NAME = 'darkMode';
 
   const toggleDarkMode = () => {
@@ -24,8 +34,8 @@ const App = () => {
   };
 
   const getMatchData = async () => {
-    const data = await fetch('data/matches');
-    console.log(await data.json());
+    const response = await fetch('data/matches');
+    setMatches(await response.json());
   };
 
   useEffect(() => {
@@ -42,9 +52,9 @@ const App = () => {
       <Header lightMode={lightMode} setLightMode={setLightMode} />
       <NavigationBar lightMode={lightMode} />
       <Routes>
-        <Route path="/" element={<Main lightMode={lightMode} date={date} />}></Route>
-        <Route path="/previous" element={<Previous lightMode={lightMode} date={date} />}></Route>
-        <Route path="/next" element={<Next lightMode={lightMode} date={date} />}></Route>
+        <Route path="/" element={<Main lightMode={lightMode} date={date} matches={matches} />}></Route>
+        <Route path="/previous" element={<Previous lightMode={lightMode} date={date} matches={matches} />}></Route>
+        <Route path="/next" element={<Next lightMode={lightMode} date={date} matches={matches} />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
