@@ -21,13 +21,13 @@ const NavigationBar = ({ lightMode }: { lightMode: boolean }) => {
   return (
     <div className={lightMode ? styles.navigationBar : styles.darkNavigationBar}>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToPrevious}>
-        {`${today.getMonth()}월`}
+        <a>{`${today.getMonth()}월`}</a>
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToCurrent}>
-        {`${today.getMonth() + 1}월`}
+        <a>{`${today.getMonth() + 1}월`}</a>
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToNext}>
-        {`${today.getMonth() + 2}월`}
+        <a>{`${today.getMonth() + 2}월`}</a>
       </button>
     </div>
   );
