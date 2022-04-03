@@ -48,7 +48,7 @@ const App = () => {
   }, [lightMode]);
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Header lightMode={lightMode} setLightMode={setLightMode} />
       <NavigationBar lightMode={lightMode} />
       <Routes>
