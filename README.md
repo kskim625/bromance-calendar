@@ -2,7 +2,7 @@
 
 ## 🔗 Deploy Link
 
-- [Heroku 배포](https://bromance-calendar.herokuapp.com//)
+- [Heroku 배포](https://bromance-calendar.herokuapp.com/)
 
 ## 🛠️ Skills
 
