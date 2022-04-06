@@ -14,7 +14,7 @@
 ### light mode
 
 #### calendar
-![image](https://user-images.githubusercontent.com/83746849/160551717-11bfcaef-5db6-4924-82a1-f45addf5a494.png)
+![image](https://user-images.githubusercontent.com/83746849/161964714-01e7f748-5543-4831-8c71-bfb99a5e9885.png)
 
 #### modal
 ![image](https://user-images.githubusercontent.com/83746849/161739279-f9e6440d-8670-4fb9-8f27-5733353def5f.png)
