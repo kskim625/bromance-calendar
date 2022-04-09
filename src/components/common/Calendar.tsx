@@ -82,7 +82,11 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     const isMatchDay: boolean = decideMatchDay(calEl);
     const contentStyle = lightMode ? styles.calendarContent : styles.darkCalendarContent;
 
-    return isToday ? (
+    return isToday && isMatchDay ? (
+      <div className={`${contentStyle} ${styles.calendarToday} ${styles.calendarMatchDay}`} onClick={displayMatchDayModal} key={`calendarEl-${j}`}>
+        {calEl}
+      </div>
+    ) : isToday ? (
       <div className={`${contentStyle} ${styles.calendarToday}`} key={`calendarEl-${j}`}>
         {calEl}
       </div>
