@@ -1,15 +1,17 @@
 import Calendar from '../common/Calendar';
 import { pagesPropsType } from '../../App';
+import { dataType } from '../../App';
 
-const Main = ({ lightMode, date, matches }: pagesPropsType) => {
-  const THIS_DATE = String(new Date().getMonth() + 1);
-  const THIS_MATCHES = matches.filter((match) => {
+const Main = ({ lightMode, date, matches, monthInfo }: pagesPropsType) => {
+  const MONTH_OFFSET: number = monthInfo === 'previous' ? 0 : monthInfo === 'current' ? 1 : 2;
+  const THIS_DATE: string = String(new Date().getMonth() + MONTH_OFFSET);
+  const THIS_MATCHES: dataType[] = matches.filter((match) => {
     return match.month === THIS_DATE;
   });
 
   return (
     <div id="main">
-      <Calendar lightMode={lightMode} date={date} matches={THIS_MATCHES} monthInfo="current" />
+      <Calendar lightMode={lightMode} date={date} matches={THIS_MATCHES} monthInfo={monthInfo} />
     </div>
   );
 };

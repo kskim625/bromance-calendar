@@ -2,22 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { dataType } from '../../App';
 import styles from '../../styles/Calendar.module.css';
 
-type monthInfoType = 'previous' | 'current' | 'next';
-
 interface calendarType {
   lightMode: boolean;
   date: Date;
   matches: dataType[];
-  monthInfo: monthInfoType;
+  monthInfo: string;
 }
 
-const CalendarHeader = ({ monthInfo }: { monthInfo: monthInfoType }) => {
-  const monthOffset: number = monthInfo === 'previous' ? 0 : monthInfo === 'current' ? 1 : 2;
-  const month: number = new Date().getMonth() + monthOffset;
+const CalendarHeader = ({ monthInfo }: { monthInfo: string }) => {
+  const MONTH_OFFSET: number = monthInfo === 'previous' ? 0 : monthInfo === 'current' ? 1 : 2;
+  const MONTH: number = new Date().getMonth() + MONTH_OFFSET;
 
   return (
     <div className={styles.dayType}>
-      <div className={styles.dayTypeTop}>{`${month}월 매치 정보`}</div>
+      <div className={styles.dayTypeTop}>{`${MONTH}월 매치 정보`}</div>
       <div className={styles.dayTypeBottom}>
         <div className={styles.dayTypeToday}>31</div>
         {'오늘'}

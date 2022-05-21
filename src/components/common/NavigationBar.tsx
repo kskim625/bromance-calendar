@@ -1,22 +1,32 @@
-import { useState } from 'react';
+import { useEffect, Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router';
 import styles from '../../styles/NavigationBar.module.css';
 
-const NavigationBar = ({ lightMode }: { lightMode: boolean }) => {
+interface NavigationBarProps {
+  lightMode: boolean;
+  monthInfo: string;
+  setMonthInfo: Dispatch<SetStateAction<string>>;
+}
+
+const NavigationBar = ({ lightMode, monthInfo, setMonthInfo }: NavigationBarProps) => {
   const navigate = useNavigate();
-  const [today] = useState<Date>(new Date());
+  const today = new Date();
 
   const goToPrevious = () => {
-    navigate('/previous');
+    setMonthInfo('previous');
   };
 
   const goToCurrent = () => {
-    navigate('/');
+    setMonthInfo('current');
   };
 
   const goToNext = () => {
-    navigate('/next');
+    setMonthInfo('next');
   };
+
+  useEffect(() => {
+    navigate(`main?month=${monthInfo}`);
+  }, [monthInfo]);
 
   return (
     <div className={lightMode ? styles.navigationBar : styles.darkNavigationBar}>
