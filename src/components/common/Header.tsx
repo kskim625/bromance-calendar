@@ -1,9 +1,9 @@
-import React, { SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import styles from '../../styles/Header.module.css';
 
 interface propType {
   lightMode: boolean;
-  setLightMode: React.Dispatch<SetStateAction<boolean>>;
+  setLightMode: Dispatch<SetStateAction<boolean>>;
 }
 
 const Header = ({ lightMode, setLightMode }: propType) => {
@@ -28,4 +28,4 @@ const Header = ({ lightMode, setLightMode }: propType) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

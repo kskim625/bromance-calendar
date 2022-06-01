@@ -144,7 +144,7 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
         return str === '';
       }).length +
       1;
-    while (currentDate < lastDate) {
+    while (currentDate <= lastDate) {
       calendarRows.push(setCalendarRow(year, month, currentDate, lastDate));
       currentDate += DAYS_IN_A_WEEK;
     }
