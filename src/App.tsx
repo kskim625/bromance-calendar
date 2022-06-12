@@ -20,6 +20,7 @@ export interface dataType {
   iso: string;
   location: string;
   time: string;
+  status: string;
 }
 
 const App = () => {

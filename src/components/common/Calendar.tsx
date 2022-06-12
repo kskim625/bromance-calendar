@@ -63,6 +63,7 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
             <div className={styles.matchHeader}>{`${matches.iso} 일정`}</div>
             <div className={styles.matchDescription}>{`시간: ${matches.time}`}</div>
             <div className={styles.matchDescription}>{`장소: ${matches.location}`}</div>
+            <div className={styles.matchDescription}>{`상태: ${matches.status}`}</div>
           </div>
           <div className={removeButtonClass} onClick={removeModal}>
             닫기
