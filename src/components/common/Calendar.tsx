@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { dataType } from '../../App';
 import styles from '../../styles/Calendar.module.css';
+import CalendarModal from './CalendarModal';
 
 interface calendarType {
   lightMode: boolean;
@@ -27,9 +28,10 @@ const CalendarHeader = ({ monthInfo }: { monthInfo: string }) => {
 };
 
 const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
+  const [thisDate, setThisDate] = useState<string | null>('');
   const [thisCalendar, setThisCalendar] = useState<JSX.Element>(<></>);
   const [thisMatches, setThisMatches] = useState<dataType[]>([]);
-  const [thisMatchDayModal, setThisMatchDayModal] = useState<JSX.Element>(<></>);
+  const [displayModal, setDisplayModal] = useState<boolean>(false);
   const [selectedEvent, setSelectedEvent] = useState<React.MouseEvent | null>(null);
   const DAYS_IN_A_WEEK: number = 7;
 
@@ -41,36 +43,10 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     );
   };
 
-  const removeModal = () => {
-    setThisMatchDayModal(<></>);
-    setSelectedEvent(null);
-  };
-
   const displayMatchDayModal = (e: React.MouseEvent) => {
     setSelectedEvent(e);
-    const date = (e.target as HTMLDivElement).textContent;
-    const matches: dataType = thisMatches.filter((match) => {
-      return match.date === date;
-    })[0];
-
-    const containerClass = lightMode ? styles.modalContainer : styles.darkModalContainer;
-    const removeButtonClass = lightMode ? styles.removeModal : styles.darkRemoveModal;
-
-    setThisMatchDayModal(
-      <div className={styles.modalWrapper}>
-        <div className={containerClass}>
-          <div className={styles.modalContent}>
-            <div className={styles.matchHeader}>{`${matches.iso} 일정`}</div>
-            <div className={styles.matchDescription}>{`시간: ${matches.time}`}</div>
-            <div className={styles.matchDescription}>{`장소: ${matches.location}`}</div>
-            <div className={styles.matchDescription}>{`상태: ${matches.status}`}</div>
-          </div>
-          <div className={removeButtonClass} onClick={removeModal}>
-            닫기
-          </div>
-        </div>
-      </div>
-    );
+    setThisDate((e.target as HTMLDivElement).textContent);
+    setDisplayModal(true);
   };
 
   const drawCalendarEl = (calEl: string, j: number) => {
@@ -173,7 +149,14 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     <div className={styles.calendarWrapper}>
       <CalendarHeader monthInfo={monthInfo} />
       {thisCalendar}
-      {thisMatchDayModal}
+      <CalendarModal
+        lightMode={lightMode}
+        matches={thisMatches}
+        thisDate={thisDate}
+        displayModal={displayModal}
+        setDisplayModal={setDisplayModal}
+        setSelectedEvent={setSelectedEvent}
+      />
     </div>
   );
 };
