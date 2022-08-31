@@ -7,6 +7,6 @@
 {"year":"2022","month":"8","date":"14","iso":"2022-08-14","location":"용산 2구장","time":"오전 6-8시","status":"매치 완료","_id":"month8data2"}
 {"year":"2022","month":"8","date":"20","iso":"2022-08-20","location":"용산 7구장","time":"오전 7-9시","status":"매치 완료","_id":"month8data3"}
 {"year":"2022","month":"8","date":"28","iso":"2022-08-28","location":"용산 7구장","time":"오전 7-9시","status":"자체전","_id":"month8data4"}
-{"year":"2022","month":"9","date":"3","iso":"2022-09-03","location":"용산 4구장","time":"오전 6-8시","status":"투표 예정","_id":"month9data1"}
+{"year":"2022","month":"9","date":"3","iso":"2022-09-03","location":"용산 4구장","time":"오전 6-8시","status":"구장 양도","_id":"month9data1"}
 {"year":"2022","month":"9","date":"17","iso":"2022-09-17","location":"용산 2구장","time":"오전 6-8시","status":"투표 예정","_id":"month9data2"}
 {"year":"2022","month":"9","date":"25","iso":"2022-09-25","location":"용산 3구장","time":"오전 7-9시","status":"투표 예정","_id":"month9data3"}
