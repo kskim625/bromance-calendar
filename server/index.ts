@@ -2,7 +2,6 @@ import express from 'express';
 import dataRouter from './router/dataRouter';
 import bodyParser from 'body-parser';
 import path from 'path';
-import dataStore from 'nedb';
 
 const app: express.Application = express();
 const PORT = process.env.PORT || 5000;
