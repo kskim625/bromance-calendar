@@ -26,18 +26,18 @@ const NavigationBar = ({ lightMode, monthInfo, setMonthInfo }: NavigationBarProp
 
   useEffect(() => {
     navigate(`main?month=${monthInfo}`);
-  }, [monthInfo]);
+  }, [monthInfo, navigate]);
 
   return (
     <div className={lightMode ? styles.navigationBar : styles.darkNavigationBar}>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToPrevious}>
-        <a>{`${today.getMonth()}월`}</a>
+        {`${today.getMonth()}월`}
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToCurrent}>
-        <a>{`${today.getMonth() + 1}월`}</a>
+        {`${today.getMonth() + 1}월`}
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToNext}>
-        <a>{`${today.getMonth() + 2}월`}</a>
+        {`${today.getMonth() + 2}월`}
       </button>
     </div>
   );
