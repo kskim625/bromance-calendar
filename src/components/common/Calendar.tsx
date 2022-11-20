@@ -143,7 +143,8 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     if (selectedEvent) {
       displayMatchDayModal(selectedEvent);
     }
-  }, [thisMatches, selectedEvent, setCalendar, lightMode]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [thisMatches, selectedEvent, lightMode]);
 
   return (
     <div className={styles.calendarWrapper}>
