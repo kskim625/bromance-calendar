@@ -1,13 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+const wrap = ReactDom.createRoot(document.getElementById('wrap') as HTMLElement);
+wrap.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('wrap')
+  </React.StrictMode>
 );
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('wrap')
+// );
 
 reportWebVitals();

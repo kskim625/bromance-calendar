@@ -4,6 +4,7 @@ import Header from './components/common/Header';
 import NavigationBar from './components/common/NavigationBar';
 import Footer from './components/common/Footer';
 import Main from './components/pages/Main';
+import data from './data/data.js';
 import './styles/index.css';
 
 export interface pagesPropsType {
@@ -35,8 +36,7 @@ const App = () => {
   };
 
   const getMatchData = async () => {
-    const response = await fetch('data/matches');
-    setMatches(await response.json());
+    setMatches(data);
   };
 
   useEffect(() => {
