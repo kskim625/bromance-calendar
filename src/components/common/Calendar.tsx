@@ -16,7 +16,7 @@ const CalendarHeader = ({ monthInfo }: { monthInfo: string }) => {
 
   return (
     <div className={styles.dayType}>
-      <div className={styles.dayTypeTop}>{`${MONTH}월 매치 정보`}</div>
+      <div className={styles.dayTypeTop}>{`${MONTH < 0 ? MONTH + 12 : MONTH > 12 ? MONTH - 12 : MONTH}월 매치 정보`}</div>
       <div className={styles.dayTypeBottom}>
         <div className={styles.dayTypeToday}>31</div>
         {'오늘'}

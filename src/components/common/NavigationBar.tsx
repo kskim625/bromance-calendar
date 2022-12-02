@@ -11,6 +11,8 @@ interface NavigationBarProps {
 const NavigationBar = ({ lightMode, monthInfo, setMonthInfo }: NavigationBarProps) => {
   const navigate = useNavigate();
   const today = new Date();
+  const lastMonth = today.getMonth();
+  const nextMonth = today.getMonth() + 2;
 
   const goToPrevious = () => {
     setMonthInfo('previous');
@@ -31,13 +33,13 @@ const NavigationBar = ({ lightMode, monthInfo, setMonthInfo }: NavigationBarProp
   return (
     <div className={lightMode ? styles.navigationBar : styles.darkNavigationBar}>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToPrevious}>
-        {`${today.getMonth()}월`}
+        {`${lastMonth < 1 ? lastMonth + 12 : lastMonth}월`}
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToCurrent}>
         {`${today.getMonth() + 1}월`}
       </button>
       <button className={lightMode ? styles.button : styles.darkButton} onClick={goToNext}>
-        {`${today.getMonth() + 2}월`}
+        {`${nextMonth > 12 ? nextMonth - 12 : nextMonth}월`}
       </button>
     </div>
   );
