@@ -7,7 +7,7 @@ const data = [
   { year: '2024', month: '5', date: '11', iso: '2024-05-11', location: '용산 7구장', time: '오전 7-9시', status: '투표 예정', _id: 'month5data2' },
   { year: '2024', month: '5', date: '19', iso: '2024-05-19', location: '용산 4구장', time: '오전 6-8시', status: '투표 예정', _id: 'month5data3' },
   { year: '2024', month: '5', date: '25', iso: '2024-05-25', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month5data4' },
-  { year: '2024', month: '6', date: '2', iso: '2024-06-02', location: '용산 2구장', time: '오전 6-8시', status: '투표 예정', _id: 'month6data1' },
+  { year: '2024', month: '6', date: '1', iso: '2024-06-01', location: '용산 2구장', time: '오전 6-8시', status: '투표 예정', _id: 'month6data1' },
   { year: '2024', month: '6', date: '8', iso: '2024-06-08', location: '용산 7구장', time: '오전 7-9시', status: '투표 예정', _id: 'month6data2' },
   { year: '2024', month: '6', date: '16', iso: '2024-06-16', location: '용산 3구장', time: '오전 7-9시', status: '투표 예정', _id: 'month6data3' },
   // { year: '2024', month: '6', date: '23', iso: '2024-06-23', location: '용산 7구장', time: '오전 7-9시', status: '투표 예정', _id: 'month6data4' },
