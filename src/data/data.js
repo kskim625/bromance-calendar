@@ -37,13 +37,14 @@ const data = [
   { year: '2025', month: '1', date: '18', iso: '2025-01-18', location: '용산 7구장', time: '오전 7-9시', status: '타팀 양도', _id: 'month1data3' },
   { year: '2025', month: '1', date: '26', iso: '2025-01-26', location: '용산 6구장', time: '오전 6-8시', status: '타팀 양도', _id: 'month1data4' },
   { year: '2025', month: '2', date: '2', iso: '2025-02-02', location: '용산 2구장', time: '오전 6-8시', status: '매치 완료', _id: 'month2data1' },
-  { year: '2025', month: '2', date: '9', iso: '2025-02-09', location: '용산 1구장', time: '오전 7-9시', status: '투표 예정', _id: 'month2data2' },
+  { year: '2025', month: '2', date: '9', iso: '2025-02-09', location: '용산 1구장', time: '오전 7-9시', status: '매치 완료', _id: 'month2data2' },
   { year: '2025', month: '2', date: '15', iso: '2025-02-15', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month2data3' },
   { year: '2025', month: '2', date: '22', iso: '2025-02-22', location: '용산 7구장', time: '오전 7-9시', status: '투표 예정', _id: 'month2data4' },
-  { year: '2025', month: '3', date: '2', iso: '2025-03-02', location: '용산 4구장', time: '오전 6-8시', status: '투표 예정', _id: 'month3data1' },
-  { year: '2025', month: '3', date: '16', iso: '2025-03-16', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month3data2' },
-  { year: '2025', month: '3', date: '22', iso: '2025-03-22', location: '용산 3구장', time: '오전 7-9시', status: '투표 예정', _id: 'month3data3' },
-  { year: '2025', month: '3', date: '29', iso: '2025-03-29', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month3data4' },
+  { year: '2025', month: '3', date: '1', iso: '2025-03-01', location: '용산 1구장', time: '오전 7-9시', status: '투표 예정', _id: 'month3data1' },
+  { year: '2025', month: '3', date: '8', iso: '2025-03-08', location: '용산 4구장', time: '오전 7-9시', status: '투표 예정', _id: 'month3data2' },
+  { year: '2025', month: '3', date: '16', iso: '2025-03-16', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month3data3' },
+  { year: '2025', month: '3', date: '22', iso: '2025-03-22', location: '용산 3구장', time: '오전 7-9시', status: '투표 예정', _id: 'month3data4' },
+  { year: '2025', month: '3', date: '29', iso: '2025-03-29', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month3data5' },
 ];
 
 export default data;
