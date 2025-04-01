@@ -35,13 +35,7 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
   const [selectedEvent, setSelectedEvent] = useState<React.MouseEvent | null>(null);
   const DAYS_IN_A_WEEK: number = 7;
 
-  const decideMatchDay = (calEl: string) => {
-    return (
-      thisMatches.filter((match) => {
-        return match.date === calEl;
-      }).length > 0
-    );
-  };
+  const decideMatchDay = (calEl: string) => thisMatches.filter((match) => match.date === calEl).length > 0;
 
   const displayMatchDayModal = (e: React.MouseEvent) => {
     setSelectedEvent(e);
@@ -80,21 +74,13 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     const rowStyle = lightMode ? styles.calendarRow : styles.darkCalendarRow;
     return (
       <div className={rowStyle} key={`calendar-${i}`}>
-        {calendarRow.map((calEl, j) => {
-          return drawCalendarEl(calEl, j);
-        })}
+        {calendarRow.map((calEl, j) => drawCalendarEl(calEl, j))}
       </div>
     );
   };
 
   const drawCalendar = (calendarArray: string[][]) => {
-    setThisCalendar(
-      <>
-        {calendarArray.map((calendarRow, i) => {
-          return drawCalendarRow(calendarRow, i);
-        })}
-      </>
-    );
+    setThisCalendar(<>{calendarArray.map((calendarRow, i) => drawCalendarRow(calendarRow, i))}</>);
   };
 
   const setCalendarRow = (year: number, month: number, date: number, lastDate: number) => {
@@ -115,12 +101,7 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
     const calendarRows = [['일', '월', '화', '수', '목', '금', '토']];
     const firstRow = setCalendarRow(year, month, 1, lastDate);
     calendarRows.push(firstRow);
-    let currentDate =
-      DAYS_IN_A_WEEK -
-      firstRow.filter((str) => {
-        return str === '';
-      }).length +
-      1;
+    let currentDate = DAYS_IN_A_WEEK - firstRow.filter((str) => str === '').length + 1;
     while (currentDate <= lastDate) {
       calendarRows.push(setCalendarRow(year, month, currentDate, lastDate));
       currentDate += DAYS_IN_A_WEEK;
@@ -135,7 +116,8 @@ const Calendar = ({ lightMode, date, matches, monthInfo }: calendarType) => {
   };
 
   useEffect(() => {
-    setThisMatches(matches);
+    // INFO: 달력을 그릴 때는 올해 데이터만 고려합니다.
+    setThisMatches(matches.filter(({ year }) => year === String(new Date().getFullYear())));
   }, [matches]);
 
   useEffect(() => {
