@@ -67,6 +67,10 @@ const data = [
   { year: '2025', month: '8', date: '17', iso: '2025-08-17', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month8data3' },
   { year: '2025', month: '8', date: '24', iso: '2025-08-24', location: '용산 4구장', time: '오전 6-8시', status: '투표 예정', _id: 'month8data4' },
   { year: '2025', month: '8', date: '30', iso: '2025-08-30', location: '용산 4구장', time: '오전 6-8시', status: '투표 예정', _id: 'month8data5' },
+  { year: '2025', month: '9', date: '6', iso: '2025-09-06', location: '용산 2구장', time: '오전 6-8시', status: '투표 예정', _id: 'month9data1' },
+  { year: '2025', month: '9', date: '14', iso: '2025-09-14', location: '용산 6구장', time: '오전 6-8시', status: '투표 예정', _id: 'month9data2' },
+  { year: '2025', month: '9', date: '20', iso: '2025-09-20', location: '용산 1구장', time: '오전 7-9시', status: '투표 예정', _id: 'month9data3' },
+  { year: '2025', month: '9', date: '27', iso: '2025-09-27', location: '용산 4구장', time: '오전 6-8시', status: '투표 예정', _id: 'month9data4' },
 ];
 
 export default data;
